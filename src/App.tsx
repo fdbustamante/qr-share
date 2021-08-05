@@ -1,40 +1,60 @@
 import './App.css';
 
-import { Button, Divider, Grid, TextField } from '@material-ui/core';
+import { Button, Divider, Grid, TextField, Theme, Typography, createStyles, makeStyles } from '@material-ui/core';
 import React, { useState } from 'react';
 
 import QRCode from "react-qr-code";
+import SendIcon from '@material-ui/icons/Send';
+
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    root: {
+      flexGrow: 1,
+    },
+  }),
+);
 
 function App() {
-  const [value, setValue] = useState("Hola");
+  const classes = useStyles();
 
-  const [qrValue, setQrValue] = useState("Hola");
+  const [value, setValue] = useState("");
 
+  const [qrValue, setQrValue] = useState("Hola Mundo!");
   const handleChange = (event: any) => {
     setValue(event.target.value);
   };
 
   return (
-    <Grid style={{ margin: 20 }} container spacing={3}>
-      <Grid container item xs={6} spacing={3} justifyContent="center" alignItems="center" direction="column">
-        <Grid item xs={6}>
-          <TextField
-            id="standard-multiline-flexible"
-            label="Multiline"
-            multiline
-            maxRows={4}
-            value={value}
-            onChange={handleChange}
-          />
+    <div className={classes.root}>
+      <Typography variant="h1" component="h2" gutterBottom align="center">
+        QR code online generator
+      </Typography>
+      <Divider />
+      <Grid style={{ padding: 20 }} container spacing={8}>
+        <Grid container item xs={12} lg={6} spacing={8} justifyContent="center" alignItems="center" direction="column">
+          <Grid item xs>
+            <TextField
+              id="standard-multiline-flexible"
+              label="Insert text"
+              multiline
+              maxRows={4}
+              value={value}
+              onChange={handleChange}
+              variant="outlined"
+              style={{ width: 400 }}
+            />
+          </Grid>
+          <Grid item xs>
+            <Button variant="contained" color="primary" onClick={() => setQrValue(value)} size="large" endIcon={<SendIcon />}>Generate QR</Button>
+          </Grid>
         </Grid>
-        <Grid item xs={6}>
-          <Button variant="contained" color="primary" onClick={() => setQrValue(value)} size="large">Generate QR</Button>
+        <Grid container item xs={12} lg={6} spacing={8} justifyContent="center" alignItems="center" direction="column">
+          <Grid item xs={12} lg={6}>
+            <QRCode value={qrValue} size={256}/>
+          </Grid>
         </Grid>
       </Grid>
-      <Grid item xs={6}>
-        <QRCode value={qrValue} size={256}/>
-      </Grid>
-    </Grid>
+    </div>
   );
 }
 
