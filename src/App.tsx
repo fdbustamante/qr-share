@@ -60,7 +60,6 @@ function App(): JSX.Element {
   };
 
   const handleClose = () => {
-    console.log('hola');
     setAnchorEl(null);
   };
 

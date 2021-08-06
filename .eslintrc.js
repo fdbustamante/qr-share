@@ -23,7 +23,8 @@ module.exports = {
     'plugins': [
         'react',
         '@typescript-eslint',
-        'react-hooks'
+        'react-hooks',
+        'prettier'
     ],
     'rules': {
       indent: ['error', 2, { SwitchCase: 1 }],
