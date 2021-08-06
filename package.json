@@ -1,7 +1,7 @@
 {
   "homepage": "https://fdbustamante.github.io/qr-share/",
   "name": "qr-share",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "private": true,
   "dependencies": {
     "@commitlint/cli": "^13.1.0",
