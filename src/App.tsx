@@ -1,23 +1,10 @@
 import './App.css';
 import './i18n/config';
 
-import {
-  Button,
-  Container,
-  Divider,
-  Grid,
-  MenuItem,
-  Popover,
-  Select,
-  TextField,
-  Typography,
-  createStyles,
-  makeStyles,
-} from '@material-ui/core';
+import { Button, Container, Divider, Grid, MenuItem, Select, TextField, Typography, createStyles, makeStyles } from '@material-ui/core';
 import React, { useState } from 'react';
 
-import { HexColorPicker } from 'react-colorful';
-import LensIcon from '@material-ui/icons/Lens';
+import { ColorPicker } from './components/ColorPicker';
 import QRCode from 'react-qr-code';
 import SendIcon from '@material-ui/icons/Send';
 import { useTranslation } from 'react-i18next';
@@ -105,30 +92,15 @@ function App(): JSX.Element {
           </Grid>
           <Grid item xs={12} container spacing={0}>
             <Grid item xs={12} md={6} className={classes.centerItem} style={{ marginTop: 20 }}>
-              <Button
-                className={classes.buttonSize}
-                size="large"
-                aria-describedby="colorpicker-id"
-                variant="outlined"
-                onClick={handleClick}
-                endIcon={<LensIcon style={{ color: color }} />}>
-                {t('select_color')}
-              </Button>
-              <Popover
-                id="colorpicker-id"
+              <ColorPicker
+                handleClick={handleClick}
+                t={t}
                 open={open}
                 anchorEl={anchorEl}
-                onClose={handleClose}
-                anchorOrigin={{
-                  vertical: 'bottom',
-                  horizontal: 'left',
-                }}
-                transformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'left',
-                }}>
-                <HexColorPicker color={color} onChange={setColor} />
-              </Popover>
+                handleClose={handleClose}
+                color={color}
+                setColor={setColor}
+              />
             </Grid>
             <Grid item xs={12} md={6} className={classes.centerItem} style={{ marginTop: 20 }}>
               <Button
