@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.1](https://github.com/fdbustamante/qr-share/compare/v0.2.0...v0.2.1) (2021-08-06)
+
+
+### Features
+
+* deploy with versions ([cef9a82](https://github.com/fdbustamante/qr-share/commit/cef9a822eee54f22a361a163f4721d9079151401))
+
 ## [0.2.0](https://github.com/fdbustamante/qr-share/compare/v0.1.2...v0.2.0) (2021-08-06)
 
 

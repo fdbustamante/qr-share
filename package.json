@@ -1,7 +1,7 @@
 {
   "homepage": "https://fdbustamante.github.io/qr-share/",
   "name": "qr-share",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "private": true,
   "dependencies": {
     "@commitlint/cli": "^13.1.0",
@@ -43,7 +43,6 @@
     "deploy:minor": "standard-version --release-as minor && npm run build && npm run deploy",
     "deploy:patch": "standard-version --release-as patch && npm run build && npm run deploy",
     "deploy:major": "standard-version --release-as major && npm run build && npm run deploy"
-
   },
   "eslintConfig": {
     "extends": [
