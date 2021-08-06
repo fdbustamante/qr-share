@@ -1,7 +1,19 @@
 import './App.css';
 import './i18n/config';
 
-import { Button, Container, Divider, Grid, MenuItem, Popover, Select, TextField, Typography, createStyles, makeStyles } from '@material-ui/core';
+import {
+  Button,
+  Container,
+  Divider,
+  Grid,
+  MenuItem,
+  Popover,
+  Select,
+  TextField,
+  Typography,
+  createStyles,
+  makeStyles,
+} from '@material-ui/core';
 import React, { useState } from 'react';
 
 import { HexColorPicker } from 'react-colorful';
@@ -23,7 +35,7 @@ const useStyles = makeStyles(() =>
     },
     buttonSize: {
       minWidth: 200,
-    }
+    },
   }),
 );
 
@@ -60,14 +72,14 @@ function App(): JSX.Element {
   const generateQr = () => {
     setQrValue(value);
     setQrColor(color);
-  }
+  };
 
   return (
     <Container className={classes.root}>
       <Typography variant="h1" component="h2" gutterBottom align="center" style={{ marginTop: 20 }}>
         {t('title')}
       </Typography>
-      <Grid style={{ padding: 20}} container spacing={8}>
+      <Grid style={{ padding: 20 }} container spacing={8}>
         <Grid item xs={12} className={classes.rightItem}>
           {t('select_lang')}&nbsp;
           <Select label="Seleccionar" value={currentLang} onChange={handleChangeLang}>
@@ -92,9 +104,14 @@ function App(): JSX.Element {
             />
           </Grid>
           <Grid item xs={12} container spacing={0}>
-            <Grid item xs={12} md={6} className={classes.centerItem} style={{marginTop: 20}} >
-
-              <Button className={classes.buttonSize} size="large" aria-describedby="colorpicker-id" variant="outlined" onClick={handleClick}  endIcon={<LensIcon style={{color: color}} />}>
+            <Grid item xs={12} md={6} className={classes.centerItem} style={{ marginTop: 20 }}>
+              <Button
+                className={classes.buttonSize}
+                size="large"
+                aria-describedby="colorpicker-id"
+                variant="outlined"
+                onClick={handleClick}
+                endIcon={<LensIcon style={{ color: color }} />}>
                 {t('select_color')}
               </Button>
               <Popover
@@ -109,13 +126,18 @@ function App(): JSX.Element {
                 transformOrigin={{
                   vertical: 'top',
                   horizontal: 'left',
-                }}
-              >
+                }}>
                 <HexColorPicker color={color} onChange={setColor} />
               </Popover>
             </Grid>
-            <Grid item xs={12} md={6} className={classes.centerItem} style={{marginTop: 20}} >
-              <Button className={classes.buttonSize} variant="contained" color="primary" onClick={generateQr} size="large" endIcon={<SendIcon />}>
+            <Grid item xs={12} md={6} className={classes.centerItem} style={{ marginTop: 20 }}>
+              <Button
+                className={classes.buttonSize}
+                variant="contained"
+                color="primary"
+                onClick={generateQr}
+                size="large"
+                endIcon={<SendIcon />}>
                 {t('generate_qr')}
               </Button>
             </Grid>
