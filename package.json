@@ -39,7 +39,11 @@
     "release": "standard-version",
     "release:minor": "standard-version --release-as minor",
     "release:patch": "standard-version --release-as patch",
-    "release:major": "standard-version --release-as major"
+    "release:major": "standard-version --release-as major",
+    "deploy:minor": "standard-version --release-as minor && npm run build && npm run deploy",
+    "deploy:patch": "standard-version --release-as patch && npm run build && npm run deploy",
+    "deploy:major": "standard-version --release-as major && npm run build && npm run deploy"
+
   },
   "eslintConfig": {
     "extends": [
